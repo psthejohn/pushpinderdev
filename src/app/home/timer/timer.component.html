@@ -1,0 +1,20 @@
+<div class="container-fluid">
+  <div class="row content align-items-center">
+    <div class="col-md-6 col-sm-6 col-xs-12 col-12">
+      <p class="hzcenter">{{ hrs }}:{{ mins }}:{{ secs }}:{{ currentTimer }}</p>
+      <p class="hzcenter">
+        <button class="btns" (click)="start()">START</button>
+        <button class="btns" (click)="pause()">PAUSE</button>
+        <button class="btns" (click)="reset()">RESET</button>
+        <button class="btns" (click)="snapshot()">LAP</button>
+      </p>
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-12 col-12 laptime">
+      <ul>
+        <li *ngFor="let timer of snapshots">
+          {{ timer }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

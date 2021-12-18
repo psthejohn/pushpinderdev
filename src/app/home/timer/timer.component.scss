@@ -1,0 +1,26 @@
+.container-fluid{
+  min-width: 400px;
+  max-height:400px;
+  border: 1px solid #aa9e9e;
+}
+.content{
+  min-height:15rem;
+}
+.btns {
+  margin: 1rem;
+  height: 2rem;
+  width: 5rem;
+  background: #88f0e2;
+  border: none;
+  cursor: pointer;
+}
+li{
+  list-style: none;
+}
+.laptime{
+  overflow-y: auto;
+}
+.hzcenter{
+  display: flex;
+  justify-content: center;
+}
