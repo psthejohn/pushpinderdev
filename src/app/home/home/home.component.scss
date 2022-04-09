@@ -3,7 +3,7 @@
 }
 .wrapper {
   background-color: #302f2f;
-  color:white
+  color: white;
 }
 main {
   min-height: 25rem;
@@ -19,12 +19,77 @@ main {
   }
 }
 
-section{
-    // height: 25rem;
-    li{
-      list-style-type: none;
-    }
+section {
+  // height: 25rem;
+  li {
+    list-style-type: none;
+  }
 }
-#secondImg{
-  height:10rem
+#secondImg {
+  height: 10rem;
+}
+.bold {
+  font-weight: bold;
+}
+.w-120 {
+  width: 120%;
+  display: flex;
+  justify-content: end;
+}
+.margin-4 {
+  margin-right: 4rem;
+}
+progress {
+  background-image: -webkit-linear-gradient(
+      -45deg,
+      transparent 33%,
+      rgba(0, 0, 0, 0.1) 33%,
+      rgba(0, 0, 0, 0.1) 66%,
+      transparent 66%
+    ),
+    -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25)),
+    -webkit-linear-gradient(left, #09c, #f44);
+}
+
+.progress {
+  width: 55%;
+  height: 6px;
+  background: #e1e4e8;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.progress .progress-bar {
+  display: block;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #b34bff,
+    #ffd33d 17%,
+    #17eaf2 34%,
+    #ff4b0a 51%,
+    #ea4aaa 68%,
+    #01feff 85%,
+    #b34bff
+  );
+  background-size: 300% 100%;
+  -webkit-animation: progress-animation 2s linear infinite;
+  animation: progress-animation 2s linear infinite;
+}
+
+@-webkit-keyframes progress-animation {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0;
+  }
+}
+
+@keyframes progress-animation {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0;
+  }
 }
