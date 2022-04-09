@@ -14,6 +14,7 @@ main {
     .imageSec {
       img {
         height: 25rem !important;
+        max-width: 95vw;
       }
     }
   }
@@ -93,24 +94,42 @@ progress {
     background-position: 0;
   }
 }
-.size-1rem{
+.size-1rem {
   font-size: 1rem !important;
 }
-.upwork{
+.upwork {
   filter: invert(1);
   background-color: #7f26c2;
   border-radius: 10px;
-  transform: scale(0.8);
-
+  transform: scale(0.76);
+  width: 48px;
+  height: 48px;
 }
-.spaced{
+
+.spaced {
   letter-spacing: 1rem;
 }
-.spaced-1{
+.spaced-1 {
   letter-spacing: 0.5rem;
 }
-.social-icons{
-  li{
+.social-icons {
+  display: flex;
+  li {
     list-style-type: none;
   }
+  p:nth-of-type(3) img {
+    width: 2.4rem;
+    height: 2.4rem;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    padding:0.2rem
+  }
+}
+.gmail-svg{
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.3rem;
+}
+.overflow-break{
+  overflow: anywhere;
 }
