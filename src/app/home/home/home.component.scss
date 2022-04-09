@@ -93,3 +93,24 @@ progress {
     background-position: 0;
   }
 }
+.size-1rem{
+  font-size: 1rem !important;
+}
+.upwork{
+  filter: invert(1);
+  background-color: #7f26c2;
+  border-radius: 10px;
+  transform: scale(0.8);
+
+}
+.spaced{
+  letter-spacing: 1rem;
+}
+.spaced-1{
+  letter-spacing: 0.5rem;
+}
+.social-icons{
+  li{
+    list-style-type: none;
+  }
+}
