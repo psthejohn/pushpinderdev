@@ -1,0 +1,21 @@
+.box{
+    border:1px solid black;
+    width:3rem;
+    height:3rem;
+}
+.grid{
+    display: grid;
+    margin:1.5rem 
+}
+.grid .box:nth-child(1){
+    border-left:none
+}
+.grid .box:last-child{
+    border-right:none
+}
+.grid .row:nth-child(1) .box{
+    border-top:none;
+}
+.grid .row:last-child .box{
+    border-bottom:none;
+}

@@ -1,0 +1,109 @@
+/* Add this to your global styles or component styles */
+.game-selection-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .game-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .game-options-box {
+    margin-top: 20px;
+  }
+  
+  .game-option {
+    cursor: pointer;
+  }
+  
+  .game-card {
+    padding: 20px;
+    border-radius: 8px;
+    color: #fff;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .tic-tac-toe { background-color: #3498db; }
+  .rps { background-color: #2ecc71; }
+  .sudoku { background-color: #f39c12; }
+  .snake { background-color: #e74c3c; }
+  .ladder-snake { background-color: #9b59b6; }
+  .ludo { background-color: #e67e22; }
+  
+  .selected-game {
+    margin-top: 20px;
+  }
+  
+  .loading-message {
+    font-size: 18px;
+    color: #777;
+  }
+  
+  /* Add this to your global styles or component styles */
+.game-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .game-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .game-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .game-card:hover:before {
+    opacity: 1;
+  }
+  
+  .game-card h3 {
+    z-index: 1;
+  }
+  
+  .game-card:active {
+    transform: scale(0.95);
+  }
+  
+  .selected-game .loading-message {
+    font-size: 18px;
+    color: #777;
+    text-align: center;
+  }
+  
+  /* Add more styles as needed */
+  /* Highlight style for the selected game */
+.selected {
+  border: 2px solid #FFD700; /* Add a golden border for highlighting */
+  opacity: 0.8;
+  pointer-events: none; /* Disable click */
+}
+
+/* Disable hover and click effect for the selected game */
+.selected .game-card {
+  transform: scale(1);
+  cursor: default;
+}
+
+/* Add hover effect for non-selected games */
+.game-option:not(.selected):hover .game-card {
+  transform: scale(1.05);
+}
+
+/* Add click effect for non-selected games */
+.game-option:not(.selected):active .game-card {
+  transform: scale(0.95);
+}
