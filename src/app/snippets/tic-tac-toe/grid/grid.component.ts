@@ -15,11 +15,10 @@ export class GridComponent {
   colWin: number[] = [0, 0, 0];
   lastElement: string = '';
   winningBroker: boolean = false;
-  winningCase :string  = ''
+  winningCase: string = '';
 
   constructor() {}
 
-  // TO BE IMPLEMENTED ---> prevent reselection !!!! IMPORTANT
   boxSelection(row: number, column: number) {
     if (this.previousSelection[row][column] === '' && !this.winningBroker) {
       if (this.lastElement === '' || this.lastElement === 'O') {
@@ -41,40 +40,61 @@ export class GridComponent {
     ];
     this.lastElement = '';
     this.colWin = [0, 0, 0];
-    this.winningBroker = false
+    this.winningBroker = false;
+    this.winningCase = '';
   }
 
   winningAlgorithm() {
     this.diagonalWin = 0;
-    this.colWin = [0, 0, 0]
-    this.previousSelection.map((row, rowIdx) => {
-      // row winning case
-      row.every((col) => col === row[0]) && row[0] != '' ? (this.winningBroker = true)  : '';
+    this.colWin = [0, 0, 0];
 
-      // same column case
-      row.map((col, colIdx) => {
-        // diagonal winning case
-        rowIdx === colIdx && this.previousSelection[rowIdx][colIdx] === 'X' ? this.diagonalWin++ : rowIdx === colIdx && this.previousSelection[rowIdx][colIdx] === 'O' ? this.diagonalWin++ : '';
-        // column winning case
-        this.previousSelection[rowIdx][colIdx] === 'X' ? this.colWin[colIdx]++ : this.previousSelection[rowIdx][colIdx] === 'O' ? this.colWin[colIdx]-- : '';
-      });
-    });
+    for (let rowIdx = 0; rowIdx < 3; rowIdx++) {
+      // Row winning case
+      if (
+        this.previousSelection[rowIdx].every((col) => col === this.previousSelection[rowIdx][0]) &&
+        this.previousSelection[rowIdx][0] !== ''
+      ) {
+        this.winningBroker = true;
+        this.winningCase = this.previousSelection[rowIdx][0];
+        break;
+      }
 
-     // Reverse Diagonal case **** SPECIAL CASE ****
-     this.previousSelection[0][2] === this.previousSelection[1][1] && this.previousSelection[1][1] === this.previousSelection[2][0] && (this.previousSelection[1][1]==='X' || this.previousSelection[1][1]==='O' ) && this.previousSelection[0][1]!=''? this.winningBroker=true : ''
+      for (let colIdx = 0; colIdx < 3; colIdx++) {
+        // Diagonal winning case
+        if (rowIdx === colIdx && this.previousSelection[rowIdx][colIdx] === 'X') {
+          this.diagonalWin++;
+        } else if (rowIdx === colIdx && this.previousSelection[rowIdx][colIdx] === 'O') {
+          this.diagonalWin--;
+        }
 
+        // Column winning case
+        if (this.previousSelection[rowIdx][colIdx] === 'X') {
+          this.colWin[colIdx]++;
+        } else if (this.previousSelection[rowIdx][colIdx] === 'O') {
+          this.colWin[colIdx]--;
+        }
+      }
+    }
 
-    console.log('diagonal win here ===> ',this.diagonalWin)
-    this.diagonalWin === 3 || this.diagonalWin === -3
-      ? (this.winningBroker = true)
-      : '';
+    // Reverse Diagonal case **** SPECIAL CASE ****
+    if (
+      this.previousSelection[0][2] === this.previousSelection[1][1] &&
+      this.previousSelection[1][1] === this.previousSelection[2][0] &&
+      (this.previousSelection[1][1] === 'X' || this.previousSelection[1][1] === 'O') &&
+      this.previousSelection[0][1] !== ''
+    ) {
+      this.winningBroker = true;
+      this.winningCase = this.previousSelection[1][1];
+    }
 
-    this.colWin.find((el) => el === 3)
-      ? (this.winningBroker = true)
-      : this.colWin.find((el) => el === -3)
-      ? (this.winningBroker = true)
-      : '';
+    if (this.diagonalWin === 3 || this.diagonalWin === -3) {
+      this.winningBroker = true;
+      this.winningCase = this.diagonalWin > 0 ? 'X' : 'O';
+    }
 
-    console.log('column win case ====> ', this.colWin);
+    if (this.colWin.includes(3) || this.colWin.includes(-3)) {
+      this.winningBroker = true;
+      this.winningCase = this.colWin.indexOf(3) !== -1 ? 'X' : 'O';
+    }
   }
 }

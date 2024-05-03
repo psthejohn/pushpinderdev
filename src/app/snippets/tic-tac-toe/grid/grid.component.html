@@ -1,20 +1,46 @@
-<p>Player 1 : X &nbsp;&nbsp; Player 2 : O</p>
+<div class="game-info">
+  <p>Player 1: X &nbsp;&nbsp; Player 2: O</p>
+</div>
+
 <div class="grid">
   <div class="row">
-    <div class="box" (click)="boxSelection(0,0)">{{previousSelection[0][0]}}</div>
-    <div class="box" (click)="boxSelection(0,1)">{{previousSelection[0][1]}}</div>
-    <div class="box" (click)="boxSelection(0,2)">{{previousSelection[0][2]}}</div>
+    <div class="box" (click)="boxSelection(0, 0)">
+      {{ previousSelection[0][0] }}
+    </div>
+    <div class="box" (click)="boxSelection(0, 1)">
+      {{ previousSelection[0][1] }}
+    </div>
+    <div class="box" (click)="boxSelection(0, 2)">
+      {{ previousSelection[0][2] }}
+    </div>
   </div>
   <div class="row">
-    <div class="box" (click)="boxSelection(1,0)">{{previousSelection[1][0]}}</div>
-    <div class="box" (click)="boxSelection(1,1)">{{previousSelection[1][1]}}</div>
-    <div class="box" (click)="boxSelection(1,2)">{{previousSelection[1][2]}}</div>
+    <div class="box" (click)="boxSelection(1, 0)">
+      {{ previousSelection[1][0] }}
+    </div>
+    <div class="box" (click)="boxSelection(1, 1)">
+      {{ previousSelection[1][1] }}
+    </div>
+    <div class="box" (click)="boxSelection(1, 2)">
+      {{ previousSelection[1][2] }}
+    </div>
   </div>
   <div class="row">
-    <div class="box" (click)="boxSelection(2,0)">{{previousSelection[2][0]}}</div>
-    <div class="box" (click)="boxSelection(2,1)">{{previousSelection[2][1]}}</div>
-    <div class="box" (click)="boxSelection(2,2)">{{previousSelection[2][2]}}</div>
+    <div class="box" (click)="boxSelection(2, 0)">
+      {{ previousSelection[2][0] }}
+    </div>
+    <div class="box" (click)="boxSelection(2, 1)">
+      {{ previousSelection[2][1] }}
+    </div>
+    <div class="box" (click)="boxSelection(2, 2)">
+      {{ previousSelection[2][2] }}
+    </div>
   </div>
 </div>
-<div *ngIf="winningBroker===true">Player Wins</div>
-<button type="button" class="btn btn-info" (click)="resetGame()">Reset Game</button>
+
+<div *ngIf="winningBroker === true" class="winner-message">
+  Player {{ winningCase }} Wins!
+</div>
+<button type="button" class="reset-btn btn btn-info" (click)="resetGame()">
+  Reset Game
+</button>
