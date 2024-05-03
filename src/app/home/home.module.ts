@@ -5,6 +5,8 @@ import { TimerComponent } from './timer/timer.component';
 import { PdfopenerComponent } from './pdfopener/pdfopener.component';
 import { SnippetsModule } from '../snippets/snippets.module';
 import { SnippetsComponent } from '../snippets/snippets.component';
+import { HeaderComponent } from '../header/header.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,8 @@ import { SnippetsComponent } from '../snippets/snippets.component';
   ],
   imports: [
     CommonModule,
-    SnippetsModule
+    SnippetsModule,
+    RouterModule
   ]
 })
 export class HomeModule { }

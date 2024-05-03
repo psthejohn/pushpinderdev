@@ -6,10 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
 import { SnippetsModule } from './snippets/snippets.module';
+import { HeaderComponent } from './header/header.component';
+import { ProjectsModule } from './projects/projects.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent
   ],
   imports: [
     HomeModule,
@@ -17,6 +20,7 @@ import { SnippetsModule } from './snippets/snippets.module';
     SnippetsModule,
     AppRoutingModule,
     RouterModule,
+    ProjectsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
