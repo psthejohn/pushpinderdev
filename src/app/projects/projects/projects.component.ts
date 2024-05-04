@@ -11,7 +11,7 @@ loading: boolean = false;
 // Array to store game details (name, number, color)
 games: any[] = [
   { name: 'JIRA', number: '0', color: 'tic-tac-toe' },
-  { name: 'Codify', number: '1', color: 'rps' },
+  { name: 'Codify', number: '1', color: 'rps' , url:'https://codify-studio.netlify.app/'},
   { name: 'Docker', number: '2', color: 'sudoku' },
   { name: 'Kafka', number: '3', color: 'snake' },
   { name: 'Splitwise', number: '4', color: 'ladder-snake' },
@@ -28,7 +28,9 @@ public getGameName(gameNumber: string): string {
 }
 
 showGame(selectedGame: string) {
-  // Disable click if already selected
+  if(this.selectionGame = 'Codify') {
+    window.open('https://codify-studio.netlify.app/', '_blank');
+  }
   if (this.selectionGame === selectedGame) {
     return;
   }else{
