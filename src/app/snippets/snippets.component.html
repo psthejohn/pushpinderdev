@@ -1,12 +1,24 @@
 <div class="game-selection-container">
-  <h2 class="game-title" *ngIf="!selectionGame">Please select a game to play</h2>
-  <h2 class="game-title" *ngIf="selectionGame">Playing Game - {{ getGameName(selectionGame) }}</h2>
+  <h2 class="game-title" *ngIf="!selectionGame">
+    Please select a game to play
+  </h2>
+  <h2 class="game-title" *ngIf="selectionGame">
+    Playing Game - {{ getGameName(selectionGame) }}
+  </h2>
   <div class="game-options-box">
     <div class="container">
       <div class="row">
         <div class="col-md-4 mb-4" *ngFor="let game of games">
-          <div class="game-option" (click)="showGame(game.number)" [ngClass]="{'selected': selectionGame === game.number}">
-            <div class="game-card" [ngClass]="game.color">
+          <div
+            class="game-option"
+            (click)="showGame(game.number)"
+            [ngClass]="{ selected: selectionGame === game.number }"
+          >
+            <div
+              class="game-card"
+              [ngClass]="game.color"
+              [ngStyle]="{ cursor: game.enable ? 'pointer' : 'not-allowed' }"
+            >
               <h3>{{ game.name }}</h3>
             </div>
           </div>
@@ -18,7 +30,13 @@
     <div class="container">
       <div *ngIf="loading" class="loading-message">
         <!-- Add the loading SVG icon -->
-      <img src="/assets/static/loading.gif" alt="" srcset="" height="150px" width="150px">
+        <img
+          src="/assets/static/loading.gif"
+          alt=""
+          srcset=""
+          height="150px"
+          width="150px"
+        />
       </div>
       <div class="row">
         <div *ngIf="selectionGame === '0'" class="col-md-12">

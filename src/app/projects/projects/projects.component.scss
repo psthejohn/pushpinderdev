@@ -1,23 +1,23 @@
 /* Add this to your global styles or component styles */
-.game-selection-container {
+.project-selection-container {
     text-align: center;
     padding: 20px;
   }
   
-  .game-title {
+  .project-title {
     font-size: 24px;
     margin-bottom: 20px;
   }
   
-  .game-options-box {
+  .project-options-box {
     margin-top: 20px;
   }
   
-  .game-option {
+  .project-option {
     cursor: pointer;
   }
   
-  .game-card {
+  .project-card {
     padding: 20px;
     border-radius: 8px;
     color: #fff;
@@ -32,7 +32,7 @@
   .ladder-snake { background-color: #9b59b6; }
   .ludo { background-color: #e67e22; }
   .resume{background-color: #1680d6;}
-  .selected-game {
+  .selected-project {
     margin-top: 20px;
   }
   
@@ -42,7 +42,7 @@
   }
   
   /* Add this to your global styles or component styles */
-.game-card {
+.project-card {
     position: relative;
     overflow: hidden;
     cursor: pointer;
@@ -50,11 +50,11 @@
     transition: all 0.3s ease;
   }
   
-  .game-card:hover {
+  .project-card:hover {
     transform: scale(1.05);
   }
   
-  .game-card:before {
+  .project-card:before {
     content: '';
     position: absolute;
     top: 0;
@@ -66,44 +66,44 @@
     transition: opacity 0.3s ease;
   }
   
-  .game-card:hover:before {
+  .project-card:hover:before {
     opacity: 1;
   }
   
-  .game-card h3 {
+  .project-card h3 {
     z-index: 1;
   }
   
-  .game-card:active {
+  .project-card:active {
     transform: scale(0.95);
   }
   
-  .selected-game .loading-message {
+  .selected-project .loading-message {
     font-size: 18px;
     color: #777;
     text-align: center;
   }
   
   /* Add more styles as needed */
-  /* Highlight style for the selected game */
+  /* Highlight style for the selected project */
 .selected {
   border: 2px solid #FFD700; /* Add a golden border for highlighting */
   opacity: 0.8;
   pointer-events: none; /* Disable click */
 }
 
-/* Disable hover and click effect for the selected game */
-.selected .game-card {
+/* Disable hover and click effect for the selected project */
+.selected .project-card {
   transform: scale(1);
   cursor: default;
 }
 
-/* Add hover effect for non-selected games */
-.game-option:not(.selected):hover .game-card {
+/* Add hover effect for non-selected projects */
+.project-option:not(.selected):hover .project-card {
   transform: scale(1.05);
 }
 
-/* Add click effect for non-selected games */
-.game-option:not(.selected):active .game-card {
+/* Add click effect for non-selected projects */
+.project-option:not(.selected):active .project-card {
   transform: scale(0.95);
 }

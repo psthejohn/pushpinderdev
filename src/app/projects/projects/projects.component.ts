@@ -3,44 +3,45 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.scss']
+  styleUrls: ['./projects.component.scss'],
 })
-export class ProjectsComponent { selectionGame: string = '';
-loading: boolean = false;
+export class ProjectsComponent {
+  selectionProject: string = '';
+  loading: boolean = false;
 
-// Array to store game details (name, number, color)
-games: any[] = [
-  { name: 'JIRA', number: '0', color: 'tic-tac-toe' },
-  { name: 'Codify', number: '1', color: 'rps' , url:'https://codify-studio.netlify.app/'},
-  { name: 'Docker', number: '2', color: 'sudoku' },
-  { name: 'Kafka', number: '3', color: 'snake' },
-  { name: 'Splitwise', number: '4', color: 'ladder-snake' },
-  { name: 'Discord', number: '5', color: 'ludo' },
-  { name: 'Video Call', number: '6', color: 'resume' },
-];
+  // Array to store project details (name, number, color, url)
+  projects: any[] = [
+    { name: 'JIRA', number: '0', color: 'tic-tac-toe' },
+    {
+      name: 'Codify',
+      number: '1',
+      color: 'rps',
+      url: 'https://codify-studio.netlify.app/',
+    },
+    { name: 'Docker', number: '2', color: 'sudoku' },
+    { name: 'Kafka', number: '3', color: 'snake' },
+    { name: 'Splitwise', number: '4', color: 'ladder-snake' },
+    { name: 'Discord', number: '5', color: 'ludo' },
+    { name: 'Video Call', number: '6', color: 'resume' },
+  ];
 
-constructor() {}
+  constructor() {}
 
-// Declare the method as public
-public getGameName(gameNumber: string): string {
-  const selectedGame = this.games.find(game => game.number === gameNumber);
-  return selectedGame ? selectedGame.name : '';
-}
+  showProject(selectedProject: any) {
+    if (selectedProject.name === 'Codify') {
+      window.open(selectedProject.url, '_blank');
+    } else {
+      if (this.selectionProject === selectedProject.name) {
+        return;
+      } else {
+        this.selectionProject = '';
+      }
 
-showGame(selectedGame: string) {
-  if(this.selectionGame = 'Codify') {
-    window.open('https://codify-studio.netlify.app/', '_blank');
+      this.loading = true;
+      this.selectionProject = selectedProject.name;
+      setTimeout(() => {
+        this.loading = false;
+      }, 2000);
+    }
   }
-  if (this.selectionGame === selectedGame) {
-    return;
-  }else{
-    this.selectionGame='';
-  }
-
-  this.loading = true;
-  setTimeout(() => {
-    this.selectionGame = selectedGame;
-    this.loading = false;
-  }, 2000);
-}
 }

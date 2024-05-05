@@ -11,13 +11,13 @@ export class SnippetsComponent {
 
   // Array to store game details (name, number, color)
   games: any[] = [
-    { name: 'Tic-tac-toe (2P)', number: '0', color: 'tic-tac-toe' },
-    { name: 'Rock Paper Scissors (1P)', number: '1', color: 'rps' },
-    { name: 'Sudoku', number: '2', color: 'sudoku' },
-    { name: 'Snake', number: '3', color: 'snake' },
-    { name: 'Ladder & Snake', number: '4', color: 'ladder-snake' },
-    { name: 'Ludo', number: '5', color: 'ludo' },
-    { name: 'Show Resume', number: '6', color: 'resume' },
+    { name: 'Tic-tac-toe (2P)', number: '0', color: 'tic-tac-toe', enable:true },
+    { name: 'Rock Paper Scissors (1P)', number: '1', color: 'rps', enable:false },
+    { name: 'Sudoku', number: '2', color: 'sudoku', enable:false },
+    { name: 'Snake', number: '3', color: 'snake', enable:false },
+    { name: 'Ladder & Snake', number: '4', color: 'ladder-snake', enable:false },
+    { name: 'Ludo', number: '5', color: 'ludo', enable:false },
+    { name: 'Show Resume', number: '6', color: 'resume', enable:false },
   ];
 
   constructor() {}
