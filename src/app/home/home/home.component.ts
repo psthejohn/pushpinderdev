@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
 
   downloadResume(): void {
     console.log('---------downloading resume ---------');
-    const pdfPath = 'assets/static/Pushpinder Singh - SDE - RESUME.pdf'; // Adjust the path based on your project structure
+    const pdfPath = 'assets/static/Pushpinder_Singh_Java_Full_Stack_Developer_Resume-1.pdf'; // Adjust the path based on your project structure
     const link = document.createElement('a');
     link.href = pdfPath;
     link.download = 'Pushpinder_Singh_Java_Full_Stack_Developer_Resume-1.pdf';
