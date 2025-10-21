@@ -1,9 +1,14 @@
 /* Add this to your global styles or component styles */
+@import 'src/styles.scss';
+
 .project-selection-container {
     text-align: center;
     padding: 20px;
   }
   
+  .disabled-project{
+    background-color: $disabled-item;
+  }
   .project-title {
     font-size: 24px;
     margin-bottom: 20px;

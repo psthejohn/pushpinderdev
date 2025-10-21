@@ -1,0 +1,28 @@
+@import 'src/styles.scss'; // Keep your variables
+
+.certificate-card {
+  border: 1px solid $primary-light;
+  border-radius: $border-radius;
+  background-color: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 1rem;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border-color: $secondary-color;
+  }
+
+  img {
+    border-radius: $border-radius;
+    max-height: 140px;
+    object-fit: contain;
+    width: 100%;
+  }
+
+  .text-muted {
+    color: $font-light;
+    font-family: monospace;
+    font-size: 0.85rem;
+  }
+}

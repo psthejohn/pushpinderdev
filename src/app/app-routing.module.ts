@@ -2,24 +2,30 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home/home.component';
 import { SnippetsComponent } from './snippets/snippets.component';
+import { CertificateComponent } from './testimonials/certificate/certificate.component';
 
 const routes: Routes = [
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: '',
-   component : HomeComponent
+    redirectTo: '/home',
+    pathMatch: 'full',
   },
   {
-    path:'games',
-    component:SnippetsComponent
-  }
+    path: 'games',
+    component: SnippetsComponent,
+  },
+  {
+    path: 'certificate',
+    component: CertificateComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

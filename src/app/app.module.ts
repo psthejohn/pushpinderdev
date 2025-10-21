@@ -8,11 +8,15 @@ import { HomeModule } from './home/home.module';
 import { SnippetsModule } from './snippets/snippets.module';
 import { HeaderComponent } from './header/header.component';
 import { ProjectsModule } from './projects/projects.module';
+import { CertificateComponent } from './testimonials/certificate/certificate.component';
+import { BoxComponent } from './testimonials/certificate/box/box.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    CertificateComponent,
+    BoxComponent
   ],
   imports: [
     HomeModule,

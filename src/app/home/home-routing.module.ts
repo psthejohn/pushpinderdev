@@ -2,11 +2,16 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { TimerComponent } from './timer/timer.component';
+import { CertificateComponent } from '../testimonials/certificate/certificate.component';
 
 const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path:'certificate',
+    component:CertificateComponent
   },
   {
     path: '',

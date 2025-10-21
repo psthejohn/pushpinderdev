@@ -7,12 +7,14 @@ import { SnippetsModule } from '../snippets/snippets.module';
 import { SnippetsComponent } from '../snippets/snippets.component';
 import { HeaderComponent } from '../header/header.component';
 import { RouterModule } from '@angular/router';
+import { WordCloudComponent } from './word-cloud/word-cloud.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     TimerComponent,
     PdfopenerComponent,
+    WordCloudComponent,
   ],
   imports: [
     CommonModule,

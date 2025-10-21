@@ -4,9 +4,9 @@
     <div class="project-options-box">
       <div class="container">
         <div class="row">
-          <div class="col-md-4 mb-4" *ngFor="let project of projects">
+          <div class="col-md-4 mb-4 p-3" *ngFor="let project of projects">
             <div class="project-option" (click)="showProject(project)" [ngClass]="{'selected': selectionProject === project.number}">
-              <div class="project-card" [ngClass]="project.color">
+              <div class="project-card" [ngClass]="project.color" >
                 <h3>{{ project.name }}</h3>
               </div>
             </div>
@@ -28,5 +28,8 @@
         </div> -->
       </div>
     </div>
+        <h5 class="text-danger">this section is WIP, The DEVELOPER IS LAZY 👀</h5>
+        <h3 class="text-success">CODIFY works partially</h3>
+
   </div>
   
