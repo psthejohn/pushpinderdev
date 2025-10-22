@@ -28,6 +28,23 @@ export class CertificateComponent {
   showModal = false;
   selectedCertificate: { image: string; title: string } | null = null;
 
+  awards:any = [
+    // Example: { title: 'Client X Recognition', image: 'assets/awards/client-x.png' }
+  ];
+
+  showAwardModal = false;
+  selectedAward: any = null;
+
+  openAwardModal(award: any) {
+    this.selectedAward = award;
+    this.showAwardModal = true;
+  }
+
+  closeAwardModal() {
+    this.showAwardModal = false;
+    this.selectedAward = null;
+  }
+
   openModal(certificate: { image: string; title: string }) {
     this.selectedCertificate = certificate;
     this.showModal = true;

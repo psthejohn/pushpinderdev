@@ -1,0 +1,47 @@
+<div *ngIf="showGhost" id="ghost-container">
+    <div id="ghost-wrapper">
+
+        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="ghost">
+            <!-- Ghost body -->
+            <path id="ghost-body"
+                d="M256 32C150 32 64 118 64 224v240l32-24 32 24 32-24 32 24 32-24 32 24 32-24 32 24 32-24 32 24 32-24 32 24V224c0-106-86-192-192-192z"
+                fill="#00ffff" stroke="#003f3f" stroke-width="5" />
+            <!-- Eyes -->
+            <circle cx="200" cy="180" r="30" fill="white" />
+            <circle cx="300" cy="180" r="30" fill="white" />
+            <circle cx="200" cy="180" r="12" fill="black" class="eye" />
+            <circle cx="300" cy="180" r="12" fill="black" class="eye" />
+            <!-- Mouth -->
+            <path d="M220 250 Q256 270 292 250" stroke="black" stroke-width="3" fill="none" class="mouth" />
+        </svg>
+    </div>
+</div>
+
+
+<script>
+    // Optional: JS trail generation (vanilla)
+    const ghost = document.getElementById('ghost');
+    const container = document.getElementById('ghost-container');
+
+    function createTrail(x, y) {
+        const trail = document.createElement('div');
+        trail.className = 'trail';
+        trail.style.left = `${x}px`;
+        trail.style.top = `${y}px`;
+        document.body.appendChild(trail);
+        setTimeout(() => trail.remove(), 1000);
+    }
+
+    let lastTrailTime = 0;
+    function updateTrail() {
+        if (!ghost) return;
+        const rect = ghost.getBoundingClientRect();
+        const now = performance.now();
+        if (now - lastTrailTime > 120) {
+            createTrail(rect.left + rect.width / 2, rect.top + rect.height / 2 + 20);
+            lastTrailTime = now;
+        }
+        requestAnimationFrame(updateTrail);
+    }
+    updateTrail();
+</script>

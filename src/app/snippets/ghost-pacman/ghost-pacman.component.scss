@@ -1,0 +1,97 @@
+#ghost-container {
+  position: fixed;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+#ghost-wrapper {
+  animation: moveAcross 10s linear infinite;
+}
+
+svg {
+  width: 80px;
+  height: 80px;
+  filter: drop-shadow(0 0 15px rgba(0,255,255,0.7));
+  animation: float 2s ease-in-out infinite, wobbleBody 1.5s ease-in-out infinite;
+  position: relative;
+}
+
+
+/* Floating left-right */
+@keyframes moveAcross {
+  0% { transform: translateX(-40vw); }
+  50% { transform: translateX(40vw); }
+  100% { transform: translateX(-40vw); }
+}
+
+/* Floating up-down */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Jelly wobble */
+@keyframes wobbleBody {
+  0%, 100% { transform: scaleX(1) scaleY(1); }
+  25% { transform: scaleX(0.95) scaleY(1.05); }
+  50% { transform: scaleX(1.05) scaleY(0.95); }
+  75% { transform: scaleX(0.98) scaleY(1.02); }
+}
+
+/* Eye animation */
+.eye {
+  animation: eyeMove 3s ease-in-out infinite, blink 5s infinite;
+  transform-origin: center;
+}
+
+@keyframes eyeMove {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(4px, 2px); }
+  50% { transform: translate(-4px, -2px); }
+  75% { transform: translate(2px, 3px); }
+  100% { transform: translate(0,0); }
+}
+
+@keyframes blink {
+  0%, 95%, 100% { transform: scaleY(1); }
+  96%, 97% { transform: scaleY(0.1); }
+  98%, 99% { transform: scaleY(1); }
+}
+
+/* Mouth movement (open-close) */
+.mouth {
+  animation: mouthMove 2s ease-in-out infinite;
+  stroke-linecap: round;
+}
+
+@keyframes mouthMove {
+  0%, 100% { d: path("M220 250 Q256 270 292 250"); }
+  50% { d: path("M220 250 Q256 280 292 250"); }
+}
+
+/* Trail already exists */
+.trail {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  background: radial-gradient(circle at center,
+    rgba(0,180,255,1) 0%,
+    rgba(0,120,255,0.6) 50%,
+    rgba(0,80,255,0) 80%);
+  filter: blur(8px) drop-shadow(0 0 20px rgba(0,120,255,0.8));
+  animation: fadeTrail 1s ease-out forwards;
+}
+
+@keyframes fadeTrail {
+  0% { opacity:1; transform: scale(1); }
+  50% { opacity:0.7; transform: scale(1.5); }
+  100% { opacity:0; transform: scale(2); }
+}

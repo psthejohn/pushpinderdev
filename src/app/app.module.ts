@@ -10,13 +10,19 @@ import { HeaderComponent } from './header/header.component';
 import { ProjectsModule } from './projects/projects.module';
 import { CertificateComponent } from './testimonials/certificate/certificate.component';
 import { BoxComponent } from './testimonials/certificate/box/box.component';
+import { GhostPacmanComponent } from './snippets/ghost-pacman/ghost-pacman.component';
+import { ContactComponent } from './testimonials/contact/contact.component';
+import { AppreaciationsComponent } from './testimonials/appreaciations/appreaciations.component';
+import { AwardsComponent } from './testimonials/awards/awards.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     CertificateComponent,
-    BoxComponent
+    BoxComponent,
+    AppreaciationsComponent,
+    AwardsComponent,
   ],
   imports: [
     HomeModule,
@@ -24,9 +30,9 @@ import { BoxComponent } from './testimonials/certificate/box/box.component';
     SnippetsModule,
     AppRoutingModule,
     RouterModule,
-    ProjectsModule
+    ProjectsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

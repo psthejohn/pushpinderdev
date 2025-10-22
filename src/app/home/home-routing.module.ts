@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { TimerComponent } from './timer/timer.component';
 import { CertificateComponent } from '../testimonials/certificate/certificate.component';
+import { ContactComponent } from '../testimonials/contact/contact.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path:'certificate',
     component:CertificateComponent
+  },
+  {
+    path:'contact',
+    component:ContactComponent
   },
   {
     path: '',
@@ -24,4 +29,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class HomeRoutingModule { }

@@ -1,177 +1,280 @@
-.cursor {
-  cursor: pointer;
+@import '/src/styles.scss';
+
+.dev-den {
+  background-color: #0d0d0d;
+  color: $primary-light;
+  min-height: 100vh;
+  padding: 60px 20px;
+  font-family: "Bitcount Grid Single", sans-serif;
 }
-.wrapper {
-  background-color: #302f2f;
-  color: white;
+
+.intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+
+  .intro-content {
+    flex: 1;
+    min-width: 300px;
+
+    .glow-text {
+      font-size: 2.8rem;
+      color: $secondary-color;
+      text-shadow: 0 0 15px rgba($secondary-color, 0.6);
+
+      span {
+        color: white;
+      }
+    }
+
+    .subtitle {
+      margin: 10px 0;
+      color: $font-light;
+    }
+
+    .tagline {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      color: $primary-light;
+    }
+
+    .social-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin: 25px 0;
+
+      .dev-chip {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 18px;
+        border-radius: 8px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #e0e0e0;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        font-family: 'Fira Code', monospace;
+
+        .symbol {
+          font-weight: bold;
+          color: $secondary-color;
+          font-size: 1.2rem;
+        }
+
+        &:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 0 15px rgba($secondary-color, 0.4);
+          border-color: rgba($secondary-color, 0.5);
+          background: linear-gradient(90deg, rgba($secondary-color, 0.2), rgba($primary-dark, 0.1));
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+          transition: all 0.5s ease;
+        }
+
+        &:hover::after {
+          left: 100%;
+        }
+
+        /* Brand glow variations */
+        &.linkedin:hover {
+          box-shadow: 0 0 15px rgba(0, 119, 181, 0.5);
+          color: #0077b5;
+        }
+
+        &.github:hover {
+          box-shadow: 0 0 15px rgba(99, 100, 101, 0.6);
+          color: #c9d1d9;
+        }
+
+        &.youtube:hover {
+          box-shadow: 0 0 15px rgba(239, 20, 0, 0.6);
+          color: #f10c00;
+        }
+      }
+    }
+
+
+
+.cta-btn {
+  position: relative;
+  display: inline-block;
+  background: none;
+  color: $secondary-color;
+  border: 2px solid $secondary-color;
+  border-radius: 10px;
+  padding: 14px 28px;
+  font-size: 1.05rem;
+  font-weight: bold;
+  letter-spacing: 0.8px;
+  // cursor: pointer;
+  font-family: 'Fira Code', monospace;
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  /* Glowing outline */
+  box-shadow: 0 0 12px rgba($secondary-color, 0.5), inset 0 0 10px rgba($secondary-color, 0.2);
+
+  /* Hover interaction */
+  &:hover {
+    color: white;
+    border-color: lighten($secondary-color, 10%);
+    box-shadow: 0 0 25px rgba($secondary-color, 0.8);
+    transform: translateY(-3px) scale(1.03);
+  }
+
+  /* Animated background pulse */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba($secondary-color, 0.3), transparent);
+    transition: 0.5s;
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
+
+  /* Terminal-style blinking cursor */
+  &::after {
+    content: '_';
+    margin-left: 6px;
+    opacity: 0;
+    animation: blink 1s infinite;
+  }
+
+  /* Small pulse animation */
+  animation: pulseGlow 2.5s ease-in-out infinite;
 }
-main {
-  min-height: 25rem;
-  box-sizing: content-box;
-  width: 100%;
-  background-color: #0f0f0f;
-  .container > .row > .col-12:nth-of-type(2) {
-    .imageSec {
-      img {
-        height: 25rem !important;
-        max-width: 95vw;
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba($secondary-color, 0.5), inset 0 0 10px rgba($secondary-color, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba($secondary-color, 0.8), inset 0 0 15px rgba($secondary-color, 0.4);
+  }
+}
+
+  }
+
+  .intro-image {
+    flex: 1;
+    text-align: center;
+
+    img {
+      width: 320px;
+      border-radius: 50%;
+      border: 3px solid $secondary-color;
+      box-shadow: 0 0 20px rgba($secondary-color, 0.4);
+    }
+  }
+}
+
+.skills {
+  margin-top: 80px;
+
+  .section-title {
+    text-align: center;
+    color: $secondary-color;
+    margin-bottom: 30px;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  .skill-card {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: #333;
+      border-radius: 5px;
+      margin-top: 10px;
+      overflow: hidden;
+
+      .progress-fill {
+        display: block;
+        height: 100%;
+        background: linear-gradient(90deg, $secondary-color, $primary-dark);
+        animation: progressGlow 2s linear infinite;
       }
     }
   }
 }
 
-section {
-  // height: 25rem;
-  li {
-    list-style-type: none;
-  }
-}
-#secondImg {
-  height: 10rem;
-}
-.bold {
-  font-weight: bold;
-}
-.w-120 {
-  width: 120%;
-  display: flex;
-  justify-content: end;
-}
-.margin-4 {
-  margin-right: 4rem;
-}
-progress {
-  background-image: -webkit-linear-gradient(
-      -45deg,
-      transparent 33%,
-      rgba(0, 0, 0, 0.1) 33%,
-      rgba(0, 0, 0, 0.1) 66%,
-      transparent 66%
-    ),
-    -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25)),
-    -webkit-linear-gradient(left, #09c, #f44);
-}
-
-.progress {
-  width: 55%;
-  height: 6px;
-  background: #e1e4e8;
-  border-radius: 3px;
-  overflow: hidden;
-}
-.progress .progress-bar {
-  display: block;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    #b34bff,
-    #ffd33d 17%,
-    #17eaf2 34%,
-    #ff4b0a 51%,
-    #ea4aaa 68%,
-    #01feff 85%,
-    #b34bff
-  );
-  background-size: 300% 100%;
-  -webkit-animation: progress-animation 2s linear infinite;
-  animation: progress-animation 2s linear infinite;
-}
-
-@-webkit-keyframes progress-animation {
+@keyframes progressGlow {
   0% {
     background-position: 100%;
   }
+
   100% {
     background-position: 0;
   }
 }
 
-@keyframes progress-animation {
-  0% {
-    background-position: 100%;
-  }
-  100% {
-    background-position: 0;
-  }
-}
-.size-1rem {
-  font-size: 1rem !important;
-}
-.upwork {
-  filter: invert(1);
-  background-color: #7f26c2;
-  border-radius: 10px;
-  transform: scale(0.76);
-  width: 48px;
-  height: 48px;
-}
+.about {
+  margin-top: 80px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 
-.spaced {
-  letter-spacing: 1rem;
-}
-.spaced-1 {
-  letter-spacing: 0.5rem;
-}
-.social-icons {
-  display: flex;
-  li {
-    list-style-type: none;
+  .section-title {
+    color: $secondary-color;
+    margin-bottom: 20px;
   }
-  p:nth-of-type(3) img {
-    width: 2.4rem;
-    height: 2.4rem;
-    background-color: #e0e0e0;
-    border-radius: 10px;
-    padding:0.2rem
-  }
-}
-.gmail-svg{
-  width: 2rem;
-  height: 2rem;
-  margin-right: 0.3rem;
-}
-.overflow-break{
-  overflow: anywhere;
-}
 
-/* Add these styles at the end of your existing styles */
-.floating-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #fc9f09; /* Change the background color as needed */
-  border: none;
-  color: white;
-  font-size: 20px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.floating-button button {
-  background: none;
-  border: none;
-  color: inherit;
-  font-size: inherit;
-  cursor: pointer;
-  outline: none;
-}
-
-/* Optional: Add animation for a smoother transition */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
+  p {
+    line-height: 1.6;
+    color: $primary-light;
   }
 }
 
-.floating-button {
-  animation: fadeIn 0.5s ease-in-out;
+@media (max-width: 768px) {
+  .intro {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
 }

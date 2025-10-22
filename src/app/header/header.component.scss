@@ -1,4 +1,12 @@
 @import 'src/styles.scss';
+nav,
+nav * {
+  cursor: none !important;
+}
+nav:hover ~ .cursor-ring {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
 
 /* Navbar Styling */
 .navbar {
