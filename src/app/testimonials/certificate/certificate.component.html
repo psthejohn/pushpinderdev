@@ -10,7 +10,7 @@
   </div>
 
   <!-- Pagination Controls -->
-  <div class="pagination-controls">
+  <div class="pagination-controls my-4">
     <button class="btn-nav" (click)="prevCertPage()" [disabled]="certPage === 1">
       <i class="fa-solid fa-chevron-left"></i>
     </button>
@@ -36,39 +36,93 @@
   </div>
 
   <!-- 🏆 Awards -->
-  <div class="container-fluid cursor my-5">
-    <h2 class="section-title mb-4">Client Awards & Recognition</h2>
-    <div class="row g-4">
-      <div class="col-6 col-md-4 col-lg-3 p-2" *ngFor="let award of paginatedAwards">
-        <div (click)="openAwardModal(award)">
-          <app-box [image]="award.image" [title]="award.title"></app-box>
-        </div>
+  <div class="d-flex align-items-center justify-content-center gap-2 mb-4 my-4">
+    <h2 class="section-title mb-0">Client Awards & Recognition</h2>
+    <button class="info-btn" (click)="openLedgerModal()" aria-label="Show Award Info">
+      <i class="fa-solid fa-circle-info"></i>
+    </button>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-6 col-md-4 col-lg-3 p-2" *ngFor="let award of paginatedAwards">
+      <div (click)="openAwardModal(award)">
+        <app-box [image]="award.image" [title]="award.title"></app-box>
       </div>
     </div>
+  </div>
 
-    <!-- Pagination Controls -->
-    <div class="pagination-controls">
-      <button class="btn-nav" (click)="prevAwardPage()" [disabled]="awardPage === 1">
-        <i class="fa-solid fa-chevron-left"></i>
-      </button>
+  <!-- Pagination Controls -->
+  <div class="pagination-controls">
+    <button class="btn-nav" (click)="prevAwardPage()" [disabled]="awardPage === 1">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
 
-      <span>Page {{ awardPage }}</span>
+    <span>Page {{ awardPage }}</span>
 
-      <button class="btn-nav" (click)="nextAwardPage()" [disabled]="awardPage * awardPerPage >= awards.length">
-        <i class="fa-solid fa-chevron-right"></i>
-      </button>
-    </div>
+    <button class="btn-nav" (click)="nextAwardPage()" [disabled]="awardPage * awardPerPage >= awards.length">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+  </div>
 
 
-    <!-- Modal for Awards -->
-    <div class="custom-modal-backdrop" *ngIf="showAwardModal" (click)="closeAwardModal()">
-      <div class="custom-modal-container" (click)="$event.stopPropagation()">
-        <div class="custom-modal-header mx-auto">
-          <h5>{{ selectedAward?.title }}</h5>
-          <button class="btn-close" (click)="closeAwardModal()" aria-label="Close"></button>
-        </div>
-        <div class="custom-modal-body">
-          <img [src]="selectedAward?.image" alt="Award Preview" />
-        </div>
+  <!-- Modal for Awards -->
+  <div class="custom-modal-backdrop" *ngIf="showAwardModal" (click)="closeAwardModal()">
+    <div class="custom-modal-container" (click)="$event.stopPropagation()">
+      <div class="custom-modal-header mx-auto">
+        <h5>{{ selectedAward?.title }}</h5>
+        <button class="btn-close" (click)="closeAwardModal()" aria-label="Close"></button>
+      </div>
+      <div class="custom-modal-body">
+        <img [src]="selectedAward?.image" alt="Award Preview" />
       </div>
     </div>
+  </div>
+
+
+  <!-- 🧾 Ledger Modal -->
+  <div class="custom-modal-backdrop" *ngIf="showLedgerModal" (click)="closeLedgerModal()">
+    <div class="ledger-modal-container" (click)="$event.stopPropagation()">
+      <div class="ledger-header">
+        <h5>🏆 Awards Legend</h5>
+        <button class="btn-close" (click)="closeLedgerModal()" aria-label="Close"></button>
+      </div>
+
+      <!-- <div class="ledger-body">
+        <ul>
+          <li><b>🏅 SPOT Award:</b> &nbsp;Awarded for exceptional performance delivered on time.</li>
+          <li><b>🏅 Pinnacle Award:</b>Given for consistent excellence and outstanding contribution.</li>
+          <li><b>🏅 Falcon Award:</b> Recognizes financial excellence and timely project delivery.</li>
+          <li><b>🏅 CSR Eye Camp:</b> Recognition for volunteering and community service efforts.</li>
+        </ul>
+      </div> -->
+      <div class="ledger-body">
+  <div class="ledger-table">
+    <div class="ledger-row">
+      <div class="ledger-cell icon">🏅</div>
+      <div class="ledger-cell title"><b>SPOT Award:</b></div>
+      <div class="ledger-cell desc">Awarded for exceptional performance delivered on time.</div>
+    </div>
+
+    <div class="ledger-row">
+      <div class="ledger-cell icon">🏅</div>
+      <div class="ledger-cell title"><b>Pinnacle Award:</b></div>
+      <div class="ledger-cell desc">Given for consistent excellence and outstanding contribution.</div>
+    </div>
+
+    <div class="ledger-row">
+      <div class="ledger-cell icon">🏅</div>
+      <div class="ledger-cell title"><b>Falcon Award:</b></div>
+      <div class="ledger-cell desc">Recognizes financial excellence and timely project delivery.</div>
+    </div>
+
+    <div class="ledger-row">
+      <div class="ledger-cell icon">🏅</div>
+      <div class="ledger-cell title"><b>CSR Eye Camp:</b></div>
+      <div class="ledger-cell desc">Recognition for volunteering and community service efforts.</div>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>

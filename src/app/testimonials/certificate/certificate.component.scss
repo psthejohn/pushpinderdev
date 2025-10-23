@@ -168,3 +168,131 @@
     font-weight: bold;
   }
 }
+/* ℹ️ Info button beside title */
+.info-btn {
+  background: transparent;
+  border: none;
+  color: $primary-dark;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    color: darken($primary-dark, 10%);
+    transform: rotate(10deg) scale(1.1);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+/* 🎴 Ledger Modal */
+.ledger-modal-container {
+  background: #ffffff;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+  animation: scaleIn 0.3s ease-in-out;
+  font-family: monospace;
+  color: $primary-dark;
+
+  .ledger-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    h5 {
+      font-size: 1.3rem;
+      margin: 0;
+      color: $primary-dark;
+    }
+
+    .btn-close {
+      background: transparent;
+      border: none;
+      font-size: 1.2rem;
+      color: $font-dark;
+      opacity: 0.6;
+      transition: 0.2s;
+
+      &:hover {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .ledger-body {
+    margin-top: 1rem;
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin: 0.8rem 0;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        line-height: 1.5;
+        transition: transform 0.2s ease;
+
+        &:hover {
+          transform: translateX(6px);
+        }
+
+        b {
+          margin-right: 0.4rem;
+          color: darken($primary-dark, 8%);
+        }
+      }
+    }
+  }
+}
+/* 📋 Ledger Table Layout (CSS-based) */
+.ledger-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.ledger-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  background: #f9f9f9;
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    background: #f3f3f3;
+    transform: translateY(-2px);
+  }
+}
+
+.ledger-cell {
+  &.icon {
+    font-size: 1.5rem;
+    flex: 0 0 40px;
+    text-align: center;
+  }
+
+  &.title {
+    font-weight: bold;
+    color: darken($primary-dark, 5%);
+    flex: 0 0 150px;
+  }
+
+  &.desc {
+    flex: 1;
+    color: rgba(0, 0, 0, 0.8);
+    line-height: 1.5;
+  }
+}
