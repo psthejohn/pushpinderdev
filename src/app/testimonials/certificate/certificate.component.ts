@@ -27,9 +27,27 @@ export class CertificateComponent {
 
   showModal = false;
   selectedCertificate: { image: string; title: string } | null = null;
-
-  awards:any = [
-    // Example: { title: 'Client X Recognition', image: 'assets/awards/client-x.png' }
+  awards: any = [
+    {
+      image: '../../../assets/Awards & Recognitions/Pinnacle Award_ Pushpinder Singh_15_02_2023.png',
+      title: 'PINNACLE AWARD 2023',
+    },
+    {
+      image: '../../../assets/Awards & Recognitions/Pinnacle Award_Pushpinder Singh_19_07_2024.png',
+      title: 'PINNACLE AWARD 2024',
+    },
+    {
+      image: '../../../assets/Awards & Recognitions/Falcon_Award_team_testimonial_26_08_2025.png',
+      title: 'FALCON AWARD TESTIMONIAL',
+    },
+    {
+      image: '../../../assets/Awards & Recognitions/CSR_EYE_CAMP_26_02_2024.png',
+      title: 'EYE CAMP 26-FEB, 2024',
+    },
+    {
+      image: '../../../assets/Awards & Recognitions/Pinnacle_award_Testimonial_Pushpinder_Singh_19_07_2024.png',
+      title:'PINNACLE AWARD TESTIMONIAL'
+    }
   ];
 
   showAwardModal = false;
