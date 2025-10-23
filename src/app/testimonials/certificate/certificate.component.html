@@ -1,47 +1,74 @@
+<!-- 🪪 Certifications -->
 <div class="container-fluid cursor my-5">
   <h2 class="section-title mb-4">Certifications</h2>
   <div class="row g-4">
-    <div class="col-6 col-md-4 col-lg-3 p-2" *ngFor="let certificate of certificates">
+    <div class="col-6 col-md-4 col-lg-3 p-2" *ngFor="let certificate of paginatedCertificates">
       <div (click)="openModal(certificate)">
         <app-box [image]="certificate.image" [title]="certificate.title"></app-box>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Modal -->
- <div class="custom-modal-backdrop" *ngIf="showModal" (click)="closeModal()">
-  <div class="custom-modal-container" (click)="$event.stopPropagation()">
-    <div class="custom-modal-header mx-auto">
-      <h5>{{ selectedCertificate?.title }}</h5>
-      <button class="btn-close" (click)="closeModal()" aria-label="Close"></button>
-    </div>
-    <div class="custom-modal-body">
-      <img [src]="selectedCertificate?.image" alt="Certificate Preview" />
-    </div>
+  <!-- Pagination Controls -->
+  <div class="pagination-controls">
+    <button class="btn-nav" (click)="prevCertPage()" [disabled]="certPage === 1">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <span>Page {{ certPage }}</span>
+
+    <button class="btn-nav" (click)="nextCertPage()" [disabled]="certPage * certPerPage >= certificates.length">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
   </div>
-</div>
-<!-- Client Awards & Recognition -->
-<div class="container-fluid cursor my-5">
-  <h2 class="section-title mb-4">Client Awards & Recognition</h2>
-  <div class="row g-4">
-    <div class="col-6 col-md-4 col-lg-3 p-2" *ngFor="let award of awards">
-      <div (click)="openAwardModal(award)" style="cursor: pointer;">
-        <app-box [image]="award?.image" [title]="award?.title"></app-box>
+
+  <!-- Modal -->
+  <div class="custom-modal-backdrop" *ngIf="showModal" (click)="closeModal()">
+    <div class="custom-modal-container" (click)="$event.stopPropagation()">
+      <div class="custom-modal-header mx-auto">
+        <h5>{{ selectedCertificate?.title }}</h5>
+        <button class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+      </div>
+      <div class="custom-modal-body">
+        <img [src]="selectedCertificate?.image" alt="Certificate Preview" />
       </div>
     </div>
   </div>
-</div>
 
-<!-- Modal for Awards -->
-<div class="custom-modal-backdrop" *ngIf="showAwardModal" (click)="closeAwardModal()">
-  <div class="custom-modal-container" (click)="$event.stopPropagation()">
-    <div class="custom-modal-header mx-auto">
-      <h5>{{ selectedAward?.title }}</h5>
-      <button class="btn-close" (click)="closeAwardModal()" aria-label="Close"></button>
+  <!-- 🏆 Awards -->
+  <div class="container-fluid cursor my-5">
+    <h2 class="section-title mb-4">Client Awards & Recognition</h2>
+    <div class="row g-4">
+      <div class="col-6 col-md-4 col-lg-3 p-2" *ngFor="let award of paginatedAwards">
+        <div (click)="openAwardModal(award)">
+          <app-box [image]="award.image" [title]="award.title"></app-box>
+        </div>
+      </div>
     </div>
-    <div class="custom-modal-body">
-      <img [src]="selectedAward?.image" alt="Award Preview" />
+
+    <!-- Pagination Controls -->
+    <div class="pagination-controls">
+      <button class="btn-nav" (click)="prevAwardPage()" [disabled]="awardPage === 1">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <span>Page {{ awardPage }}</span>
+
+      <button class="btn-nav" (click)="nextAwardPage()" [disabled]="awardPage * awardPerPage >= awards.length">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
     </div>
-  </div>
-</div>
+
+
+    <!-- Modal for Awards -->
+    <div class="custom-modal-backdrop" *ngIf="showAwardModal" (click)="closeAwardModal()">
+      <div class="custom-modal-container" (click)="$event.stopPropagation()">
+        <div class="custom-modal-header mx-auto">
+          <h5>{{ selectedAward?.title }}</h5>
+          <button class="btn-close" (click)="closeAwardModal()" aria-label="Close"></button>
+        </div>
+        <div class="custom-modal-body">
+          <img [src]="selectedAward?.image" alt="Award Preview" />
+        </div>
+      </div>
+    </div>
